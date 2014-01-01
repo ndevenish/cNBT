@@ -22,3 +22,5 @@ ADD_LIBRARY(nbt buffer.c
   nbt_treeops.c
   nbt_util.c
 )
+
+target_include_directories (nbt PUBLIC .)
