@@ -2,6 +2,8 @@ project(cnbt)
 
 cmake_minimum_required(VERSION 2.6)
 
+find_package(ZLIB REQUIRED)
+
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
 endif()
@@ -22,5 +24,8 @@ ADD_LIBRARY(nbt buffer.c
   nbt_treeops.c
   nbt_util.c
 )
+
+target_link_libraries(nbt ${ZLIB_LIBRARIES})
+include_directories(${ZLIB_INCLUDE_DIRS})
 
 target_include_directories (nbt PUBLIC .)
